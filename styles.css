@@ -1,0 +1,80 @@
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a202c; /* dark bg */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #e53e3e; /* red accent */
+  border-radius: 100px;
+}
+
+/* Fade-in animation for content */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3D animated border for image container */
+.animated-border {
+  position: relative;
+  border-radius: 1rem; /* match rounded-xl */
+  padding: 4px; /* space for border */
+  background: linear-gradient(270deg, #e53e3e, #f87171, #e53e3e, #f87171);
+  background-size: 800% 800%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 1rem;
+  background: inherit;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+/* Custom font for h1 */
+h1 {
+  font-family: 'Sawarabi Mincho', serif;
+}
+
+/* Font for content from About section to end */
+#about, #abilities, #life, #war, #did-you-know, #legacy {
+  font-family: 'Noto Serif JP', serif;
+}
+
+/* Footer font reset to default */
+footer {
+  font-family: inherit;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+    /* Removed rotation for no rotation effect */
+    transform: none;
+    box-shadow: 0 0 10px #e53e3e, 0 0 20px #f87171;
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: none;
+    box-shadow: 0 0 20px #e53e3e, 0 0 30px #f87171;
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: none;
+    box-shadow: 0 0 10px #e53e3e, 0 0 20px #f87171;
+  }
+}
